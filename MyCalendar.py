@@ -51,13 +51,15 @@ class Calendar:
         
         for day in days_in_period:
             jdate = jdatetime.date.fromgregorian(date=day)
-            jalali_day_str = f"{jdate.day} {jdate.j_months_fa[jdate.month-1]} {jdate.year}"
+            
+            # ایجاد رشته تاریخ با فاصله‌های اضافی
+            jalali_day_str = f"{jdate.day}       {jdate.j_months_fa[jdate.month-1]}       {jdate.year}"
             gregorian_month_fa = self.months_fa[day.strftime('%B')]
-            gregorian_day_str = f"{day.day} {gregorian_month_fa} {day.year}"
+            gregorian_day_str = f"{day.day}       {gregorian_month_fa}       {day.year}"
             
             weekday_fa = self.weekdays_fa[day.strftime('%A')]
             
-            # Reshape and display Persian and Arabic text correctly
+            # Reshape و راست‌چین کردن متن
             jalali_day_str = get_display(arabic_reshaper.reshape(jalali_day_str))
             weekday_fa = get_display(arabic_reshaper.reshape(weekday_fa))
             gregorian_day_str = get_display(arabic_reshaper.reshape(gregorian_day_str))

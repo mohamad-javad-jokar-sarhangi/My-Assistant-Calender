@@ -5,7 +5,8 @@ class ImageCreator:
     def __init__(self, template_path, output_dir):
         self.template_path = template_path  # مسیر به تصویر قالب
         self.output_dir = output_dir  # مسیر دایرکتوری خروجی
-        self.text_color = (2, 48, 71)
+        self.text_color = (2, 48, 71)  # رنگ پیش‌فرض
+        self.weekday_color = (255, 255, 255)  # رنگ سفید برای روزهای هفته
         self.font_path = "E:/CodPractice/pythons/Python/Telegram Bots/My Assistant Calender/font/Aviny2.ttf"
         self.font_size = 50
 
@@ -26,7 +27,7 @@ class ImageCreator:
         central_position = (256, 155)  # وسط تصویر برای دو تاریخ
 
         # نوشتن متن بر روی تصویر
-        draw.text(weekday_position, weekday_fa, font=font, fill=self.text_color)
+        draw.text(weekday_position, weekday_fa, font=font, fill=self.weekday_color)  # رنگ سفید برای روزهای هفته
 
         # محاسبه مکان یابی برای تاریخ های مرکزی
         jalali_bbox = draw.textbbox((0, 0), jalali_str, font=font)
