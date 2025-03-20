@@ -35,7 +35,7 @@ class Calendar:
     
     def get_days_in_next_30_days(self):
         start_date = self.today
-        end_date = self.today + datetime.timedelta(days=30)
+        end_date = self.today + datetime.timedelta(days=31)
         delta = datetime.timedelta(days=1)
         
         days = []
